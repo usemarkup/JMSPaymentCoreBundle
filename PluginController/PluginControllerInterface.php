@@ -82,6 +82,15 @@ interface PluginControllerInterface
     function approve($paymentId, $amount);
 
     /**
+     *
+     * This method executes a re-approve transaction against a Payment.
+     * @param $paymentId
+     * @param $amount
+     * @return mixed
+     */
+    function reApprove($paymentId, $amount);
+
+    /**
      * This method executes an approveAndDeposit transaction against a payment
      * (aka "sale" transaction or "authorization with capture").
      *
