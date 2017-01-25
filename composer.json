@@ -13,25 +13,35 @@
     ],
     "require": {
         "php": ">=5.3.2",
-        "symfony/framework-bundle": "~2.0",
-        "ext-mcrypt": "*"
+        "ext-mcrypt": "*",
+        "doctrine/orm": "~2.3",
+        "doctrine/dbal": "~2.3",
+        "doctrine/common": "~2.3",
+        "symfony/browser-kit": "~2.3|~3.0",
+        "symfony/config": "~2.3|~3.0",
+        "symfony/dependency-injection": "~2.3|~3.0",
+        "symfony/event-dispatcher": "~2.3|~3.0",
+        "symfony/form": "~2.3|~3.0",
+        "symfony/options-resolver": "~2.3|~3.0",
+        "symfony/http-foundation": "~2.3|~3.0",
+        "symfony/http-kernel": "~2.3|~3.0",
+        "symfony/validator": "~2.3|~3.0"
     },
     "require-dev": {
-        "symfony/class-loader": "*",
-        "symfony/twig-bundle": "*",
-        "symfony/finder": "*",
+        "phpunit/phpunit": "~4.8|~5.4",
+        "symfony/phpunit-bridge": "~2.7",
+        "symfony/framework-bundle": "~2.3|~3.0",
+        "symfony/twig-bundle": "~2.3|~3.0",
+        "symfony/twig-bridge": "~2.3|~3.0",
         "symfony/browser-kit": "*",
         "symfony/css-selector": "*",
         "symfony/form": "*",
         "symfony/validator": "*",
         "symfony/process": "*",
         "symfony/yaml": "*",
-        "sensio/framework-extra-bundle": "*",
-        "doctrine/doctrine-bundle": "*",
-        "doctrine/orm": "*",
-        "jms/payment-paypal-bundle": "*@dev",
-        "jms/aop-bundle": "*",
-        "jms/di-extra-bundle": "*"
+        "sensio/framework-extra-bundle": "~3.0",
+        "doctrine/doctrine-bundle": "~1.6",
+        "jms/payment-paypal-bundle": "*@dev"
     },
     "autoload": {
         "psr-0": { "JMS\\Payment\\CoreBundle": "" }
