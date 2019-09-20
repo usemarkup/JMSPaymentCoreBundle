@@ -7,4 +7,4 @@ php:
 
 before_script:
     - curl -s http://getcomposer.org/installer | php
-    - COMPOSER_ROOT_VERSION=dev-master php composer.phar install --dev
+    - COMPOSER_ROOT_VERSION=dev-master php -d memory_limit=-1 composer.phar install --dev
