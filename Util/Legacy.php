@@ -57,18 +57,6 @@ class Legacy
     }
 
     /**
-     * When using `choices_as_values` before Symfony 3.0, one must make sure to
-     * set the `choices_as_values` option to true
-     */
-    public static function needsChoicesAsValuesOption()
-    {
-        return self::formChoicesAsValues() && method_exists(
-            'Symfony\Component\Form\FormTypeInterface',
-            'setDefaultOptions'
-        );
-    }
-
-    /**
      * Symfony 3.0 removes Symfony\Component\Security\Core\Util\SecureRandom.
      */
     public static function supportsSecureRandom()

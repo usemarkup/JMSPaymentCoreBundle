@@ -10,6 +10,7 @@ use JMS\Payment\CoreBundle\Model\PaymentInstructionInterface;
 use JMS\Payment\CoreBundle\Model\PaymentInterface;
 use JMS\Payment\CoreBundle\Plugin\Exception\FunctionNotSupportedException as PluginFunctionNotSupportedException;
 use JMS\Payment\CoreBundle\Plugin\QueryablePluginInterface;
+use JMS\Payment\CoreBundle\PluginController\Exception\CreditNotFoundException;
 use JMS\Payment\CoreBundle\PluginController\Exception\Exception;
 use JMS\Payment\CoreBundle\PluginController\Exception\PaymentInstructionNotFoundException;
 use JMS\Payment\CoreBundle\PluginController\Exception\PaymentNotFoundException;

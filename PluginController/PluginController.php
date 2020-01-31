@@ -547,7 +547,7 @@ abstract class PluginController implements PluginControllerInterface
             $credit->setCreditingAmount($amount);
             $instruction->setCreditingAmount($instruction->getCreditingAmount() + $amount);
 
-            if (false === $credit->isIndependent()) {
+            if (isset($payment) && false === $credit->isIndependent()) {
                 $payment->setCreditingAmount($payment->getCreditingAmount() + $amount);
             }
 
@@ -594,7 +594,7 @@ abstract class PluginController implements PluginControllerInterface
                 $instruction->setCreditingAmount($instruction->getCreditingAmount() - $amount);
                 $instruction->setCreditedAmount($instruction->getCreditedAmount() + $processedAmount);
 
-                if (false === $credit->isIndependent()) {
+                if (isset($payment) && false === $credit->isIndependent()) {
                     $payment->setCreditingAmount($payment->getCreditingAmount() - $amount);
                     $payment->setCreditedAmount($payment->getCreditedAmount() + $processedAmount);
                 }
@@ -608,7 +608,7 @@ abstract class PluginController implements PluginControllerInterface
                 $credit->setCreditingAmount(0.0);
                 $instruction->setCreditingAmount($instruction->getCreditingAmount() - $amount);
 
-                if (false === $credit->isIndependent()) {
+                if (isset($payment) && false === $credit->isIndependent()) {
                     $payment->setCreditingAmount($payment->getCreditingAmount() - $amount);
                 }
 
@@ -622,7 +622,7 @@ abstract class PluginController implements PluginControllerInterface
             $credit->setCreditingAmount(0.0);
             $instruction->setCreditingAmount($instruction->getCreditingAmount() - $amount);
 
-            if (false === $credit->isIndependent()) {
+            if (isset($payment) && false === $credit->isIndependent()) {
                 $payment->setCreditingAmount($payment->getCreditingAmount() - $amount);
             }
 
@@ -903,7 +903,7 @@ abstract class PluginController implements PluginControllerInterface
                 throw new \InvalidArgumentException(sprintf('$amount cannot be greater than %.2f (Credit restriction).', $credit->getCreditedAmount()));
             }
 
-            if (false === $credit->isIndependent() && 1 === Number::compare($amount, $max = $payment->getCreditedAmount() - $payment->getReversingCreditedAmount())) {
+            if (isset($payment) && false === $credit->isIndependent() && 1 === Number::compare($amount, $max = $payment->getCreditedAmount() - $payment->getReversingCreditedAmount())) {
                 throw new \InvalidArgumentException(sprintf('$amount cannot be greater than %.2f (Payment restriction).', $max));
             }
 
@@ -915,7 +915,7 @@ abstract class PluginController implements PluginControllerInterface
             $credit->setReversingCreditedAmount($amount);
             $instruction->setReversingCreditedAmount($instruction->getReversingCreditedAmount() + $amount);
 
-            if (false === $credit->isIndependent()) {
+            if (isset($payment) && false === $credit->isIndependent()) {
                 $payment->setReversingCreditedAmount($payment->getReversingCreditedAmount() + $amount);
             }
 
@@ -937,7 +937,7 @@ abstract class PluginController implements PluginControllerInterface
                 throw new \InvalidArgumentException(sprintf('$amount must be equal to %.2f (Credit restriction).', $credit->getReversingCreditedAmount()));
             }
 
-            if (false === $credit->isIndependent() && 1 === Number::compare($amount, $payment->getReversingCreditedAmount())) {
+            if (isset($payment) && false === $credit->isIndependent() && 1 === Number::compare($amount, $payment->getReversingCreditedAmount())) {
                 throw new \InvalidArgumentException(sprintf('$amount cannot be greater than %.2f (Payment restriction).', $payment->getReversingCreditedAmount()));
             }
 
@@ -958,7 +958,7 @@ abstract class PluginController implements PluginControllerInterface
                 $credit->setCreditedAmount($credit->getCreditedAmount() - $processedAmount);
                 $instruction->setCreditedAmount($instruction->getCreditedAmount() - $processedAmount);
 
-                if (false === $credit->isIndependent()) {
+                if (isset($payment) && false === $credit->isIndependent()) {
                     $payment->setReversingCreditedAmount($payment->getReversingCreditedAmount() - $amount);
                     $payment->setCreditedAmount($payment->getCreditedAmount() - $processedAmount);
                 }
@@ -970,7 +970,7 @@ abstract class PluginController implements PluginControllerInterface
                 $credit->setReversingCreditedAmount(0.0);
                 $instruction->setReversingCreditedAmount($instruction->getReversingCreditedAmount() - $amount);
 
-                if (false === $credit->isIndependent()) {
+                if (isset($payment) && false === $credit->isIndependent()) {
                     $payment->setReversingCreditedAmount($payment->getReversingCreditedAmount() - $amount);
                 }
 
@@ -982,7 +982,7 @@ abstract class PluginController implements PluginControllerInterface
             $credit->setReversingCreditedAmount(0.0);
             $instruction->setReversingCreditedAmount($instruction->getReversingCreditedAmount() - $amount);
 
-            if (false === $credit->isIndependent()) {
+            if (isset($payment) && false === $credit->isIndependent()) {
                 $payment->setReversingCreditedAmount($payment->getReversingCreditedAmount() - $amount);
             }
 

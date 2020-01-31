@@ -93,9 +93,6 @@ class ChoosePaymentMethodType extends AbstractType
 
             if (Legacy::formChoicesAsValues()) {
                 $options['choices'][$label] = $method;
-                if (Legacy::needsChoicesAsValuesOption()) {
-                    $options['choices_as_values'] = true;
-                }
             } else {
                 $options['choices'][$method] = $label;
             }
@@ -176,14 +173,6 @@ class ChoosePaymentMethodType extends AbstractType
     public function getBlockPrefix()
     {
         return 'jms_choose_payment_method';
-    }
-
-    /**
-     * Legacy support for Symfony < 3.0.
-     */
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
-    {
-        $this->configureOptions($resolver);
     }
 
     /**

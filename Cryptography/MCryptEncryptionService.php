@@ -53,8 +53,12 @@ class MCryptEncryptionService implements EncryptionServiceInterface
     {
         foreach (self::MCRYPT_FUNCTIONS as $function) {
             if (!function_exists($function)) {
-                throw new \RuntimeException('The mcrypt extension must be loaded.');
+                throw new \RuntimeException('The mcrypt extension (or polyfill) must be loaded.');
             }
+        }
+
+        if (!defined(MCRYPT_DEV_URANDOM)) {
+            throw new \RuntimeException('The mcrypt extension (or polyfill) must be loaded.');
         }
 
         if (!in_array($cipher, mcrypt_list_algorithms(), true)) {
