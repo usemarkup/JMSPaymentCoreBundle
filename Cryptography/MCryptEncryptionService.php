@@ -57,7 +57,7 @@ class MCryptEncryptionService implements EncryptionServiceInterface
             }
         }
 
-        if (!defined(MCRYPT_DEV_URANDOM)) {
+        if (!defined('MCRYPT_DEV_URANDOM')) {
             throw new \RuntimeException('The mcrypt extension (or polyfill) must be loaded.');
         }
 
